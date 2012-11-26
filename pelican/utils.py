@@ -4,6 +4,7 @@ import re
 import pytz
 import shutil
 import logging
+import string
 from collections import defaultdict
 
 from codecs import open
@@ -149,6 +150,11 @@ def truncate_html_words(s, num, end_text='...'):
     length = int(num)
     if length <= 0:
         return u''
+
+    pos = string.find(s, '</p>' )
+    if pos > 0:
+        return s[0:pos+4]
+
     html4_singlets = ('br', 'col', 'link', 'base', 'img', 'param', 'area',
                       'hr', 'input')
 
