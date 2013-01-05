@@ -5,6 +5,7 @@ import pytz
 import shutil
 import logging
 import errno
+import string
 from collections import defaultdict, Hashable
 from functools import partial
 
